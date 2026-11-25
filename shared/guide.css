@@ -1,0 +1,208 @@
+/* Walking IT: shared styles for the "What's happening" box, the tour, the ? help and the Home button.
+   Created by Dean Baker. © 2026 Dean Baker. All rights reserved. */
+
+/* ---------- bottom row: What's happening (left) + Evidence (right) ---------- */
+.bot{grid-area:ev;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;min-height:0;min-width:0}
+.bot>.ev{grid-area:auto;min-height:0}
+#app.dia .bot{display:none}
+@media (min-width:1051px){
+  #app,#app.nolist{grid-template-rows:auto minmax(0,1fr) 300px}
+}
+.narr{display:flex;flex-direction:column;min-height:0;overflow:visible;position:relative}
+.narr .nh{display:flex;align-items:center;gap:10px;padding:9px 12px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.narr .nh .sp{flex:1}
+.narr .nb{flex:1;min-height:0;overflow:auto;padding:12px 14px 12px}
+.narr .nf{display:flex;align-items:center;gap:8px;padding:8px 12px;border-top:1px solid var(--line)}
+.narr .nf .ctrl{margin-left:auto}
+.narr #spdMenu .menu{bottom:calc(100% + 6px);top:auto;z-index:70}
+.sw2{display:inline-flex;align-items:center;gap:7px;font:600 10.5px var(--mono);letter-spacing:1px;text-transform:uppercase;color:var(--muted);padding:3px 2px;border-radius:6px;white-space:nowrap}
+.sw2:hover{color:var(--text)}
+.sw2 .tk{width:30px;height:17px;border-radius:17px;background:var(--line2);position:relative;flex:none;transition:background .25s}
+.sw2 .tk::after{content:"";position:absolute;top:2.5px;left:3px;width:12px;height:12px;border-radius:50%;background:#fff;transition:transform .25s cubic-bezier(.3,1.4,.4,1)}
+.sw2[aria-checked="true"]{color:var(--text)}
+.sw2[aria-checked="true"] .tk{background:var(--green)}
+.sw2[aria-checked="true"] .tk::after{transform:translateX(12px)}
+.sw2.gd[aria-checked="true"] .tk{background:var(--amber)}
+[data-theme="pixel"] .sw2{font:7px var(--head);letter-spacing:.5px}
+[data-theme="pixel"] .sw2 .tk,[data-theme="pixel"] .sw2 .tk::after{border-radius:0}
+.n-kick{font:600 10.5px var(--mono);letter-spacing:1.2px;text-transform:uppercase;color:var(--cyan)}
+.n-ttl{font:700 16px var(--head);letter-spacing:.4px;margin:3px 0 8px;text-transform:uppercase}
+.n-story{font-size:15px;line-height:1.6;margin:0}
+.n-story.grand{font-size:16px;line-height:1.65}
+.n-badge{display:inline-flex;align-items:center;gap:6px;font:600 10px var(--mono);letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:5px;background:color-mix(in srgb,var(--amber) 18%,transparent);color:var(--amber);margin-left:8px;vertical-align:2px}
+[data-theme="light"] .n-badge{color:#9a6200}
+.n-msgs{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:5px}
+.n-msgs li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 9px;align-items:start;font:12.5px var(--mono);animation:nIn .35s cubic-bezier(.2,.8,.2,1) both}
+.n-msgs li i{width:8px;height:8px;border-radius:50%;margin-top:5px;background:var(--node)}
+.n-msgs li small{grid-column:2;color:var(--muted);font-size:11px}
+.n-msgs li.k-attack i,.n-msgs li.k-bad i{background:var(--red)}
+.n-msgs li.k-data i{background:var(--amber)}
+.n-msgs li.k-defence i,.n-msgs li.k-fix i{background:var(--green)}
+.n-msgs li.now i{animation:nPulse .8s ease-in-out infinite}
+.n-msgs li.lost b{color:var(--red)}
+@keyframes nIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+@keyframes nPulse{50%{transform:scale(1.6);opacity:.5}}
+.n-note{border-radius:8px;padding:8px 10px;margin:10px 0 0;font-size:13.5px;line-height:1.5}
+.n-note b{display:block;font:600 10px var(--mono);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:2px}
+.n-note.good{background:rgba(61,220,151,.1);border:1px solid rgba(61,220,151,.45)}.n-note.good b{color:var(--green)}
+.n-note.warn{background:rgba(255,181,71,.1);border:1px solid rgba(255,181,71,.45)}.n-note.warn b{color:var(--amber)}
+.n-note.bad{background:rgba(255,90,110,.1);border:1px solid rgba(255,90,110,.45)}.n-note.bad b{color:var(--red)}
+[data-theme="light"] .n-note.warn b{color:#9a6200}
+.n-more{margin:12px 0 0;border-top:1px dashed var(--line2);padding-top:8px}
+.n-more>summary{cursor:pointer;font:600 11px var(--mono);letter-spacing:1px;text-transform:uppercase;color:var(--violet);list-style:none;display:flex;gap:6px;align-items:center}
+.n-more>summary::-webkit-details-marker{display:none}
+.n-more>summary::before{content:"▸";transition:transform .2s;display:inline-block}
+.n-more[open]>summary::before{transform:rotate(90deg)}
+.n-more p{margin:8px 0 0;font-size:13.5px;line-height:1.6;color:var(--text)}
+.n-more p.lab{font:600 10px var(--mono);letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);margin-top:10px}
+.n-go{display:flex;align-items:center;gap:10px;margin-top:14px;flex-wrap:wrap}
+.n-cont{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:9px;background:var(--accent);color:var(--accentText);border:1px solid var(--accent);font:600 12px var(--mono);letter-spacing:1px;text-transform:uppercase;transition:transform .15s,box-shadow .25s,filter .2s}
+[data-theme="dark"] .n-cont,[data-theme="light"] .n-cont{background:linear-gradient(180deg,color-mix(in srgb,var(--accent) 80%,#fff),var(--accent));box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 6px 18px -6px color-mix(in srgb,var(--accent) 80%,transparent)}
+.n-cont:hover{filter:brightness(1.08)}
+.n-cont:active{transform:translateY(1px) scale(.98)}
+.n-cont.ready{animation:nReady 1.8s ease-in-out infinite}
+@keyframes nReady{50%{box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 30%,transparent),0 6px 18px -6px var(--accent)}}
+.n-wait,.n-hint{font:12px var(--mono);color:var(--muted)}
+.n-wait::after{content:"";display:inline-block;width:1.2em;text-align:left;animation:dots 1.2s steps(4) infinite}
+@keyframes dots{0%{content:""}25%{content:"."}50%{content:".."}75%{content:"..."}}
+[data-theme="pixel"] .n-kick{font:7px var(--head);color:var(--amber);line-height:1.8}
+[data-theme="pixel"] .n-ttl{font-size:11px;line-height:1.6;color:var(--cyan)}
+[data-theme="pixel"] .n-story{font-size:20px;line-height:1.25}
+[data-theme="pixel"] .n-msgs li{font-size:16px}[data-theme="pixel"] .n-msgs li small{font-size:14px}[data-theme="pixel"] .n-msgs li i{border-radius:0}
+[data-theme="pixel"] .n-note{border-radius:0;font-size:18px;line-height:1.2}[data-theme="pixel"] .n-note b{font:7px var(--head);line-height:1.8}
+[data-theme="pixel"] .n-more>summary{font:7px var(--head)}[data-theme="pixel"] .n-more p{font-size:18px;line-height:1.25}
+[data-theme="pixel"] .n-cont{border-radius:0;font:8px var(--head);padding:11px 13px;box-shadow:3px 3px 0 #000;background:var(--accent)}
+[data-theme="pixel"] .n-wait,[data-theme="pixel"] .n-hint{font-size:16px}
+[data-theme="pixel"] .n-badge{border-radius:0;font:6px var(--head);padding:4px 6px}
+@media (max-width:1050px){
+  .bot{grid-template-columns:1fr}
+  .narr{min-height:240px}
+  .narr .nf{display:none}
+  .narr .nb{max-height:none}
+}
+
+/* ---------- ? help buttons and popovers ---------- */
+.wi-q{width:20px;height:20px;border-radius:50%;border:1px solid var(--line2);display:inline-grid;place-items:center;font:600 11px var(--mono);color:var(--muted);flex:none;line-height:1;padding:0;margin-left:6px;vertical-align:1px;transition:color .2s,border-color .2s,background .2s;text-transform:none;letter-spacing:0}
+.wi-q:hover,.wi-q[aria-expanded="true"]{color:var(--text);border-color:var(--accent);background:var(--panel2)}
+[data-theme="pixel"] .wi-q{border-radius:0;border-width:2px;font:8px var(--head);width:22px;height:22px}
+.stage-bar .wi-q{width:30px;height:30px;border-radius:8px;background:var(--panel);margin:0}
+[data-theme="pixel"] .stage-bar .wi-q{border-radius:0}
+.wi-pop{position:fixed;z-index:95;width:min(320px,calc(100vw - 24px));background:var(--panel);border:1px solid var(--line2);border-radius:12px;padding:12px 14px;box-shadow:0 20px 50px rgba(0,0,0,.45);animation:wiPop .18s ease-out;font-size:13.5px;line-height:1.55;color:var(--text)}
+.wi-pop b.t{display:block;font:600 11px var(--mono);letter-spacing:1.2px;text-transform:uppercase;color:var(--cyan);margin-bottom:4px}
+.wi-pop p{margin:0}
+.wi-pop .row{display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:8px}
+.wi-pop .lnk{font:600 11px var(--mono);letter-spacing:.8px;text-transform:uppercase;color:var(--cyan);padding:4px 0}
+.wi-pop .x{font:600 11px var(--mono);color:var(--muted);border:1px solid var(--line2);border-radius:6px;padding:3px 8px}
+@keyframes wiPop{from{opacity:0;transform:translateY(-4px) scale(.98)}to{opacity:1;transform:none}}
+[data-theme="pixel"] .wi-pop{border-radius:0;border:3px solid var(--violet);box-shadow:6px 6px 0 #000;font-size:18px;line-height:1.25}
+[data-theme="pixel"] .wi-pop b.t{font:8px var(--head);color:var(--amber);line-height:1.8}
+[data-theme="pixel"] .wi-pop .lnk,[data-theme="pixel"] .wi-pop .x{font:7px var(--head);border-radius:0}
+
+/* ---------- tour ---------- */
+.wi-tour{position:fixed;inset:0;z-index:96}
+.wi-hole{position:fixed;border-radius:12px;box-shadow:0 0 0 9999px rgba(3,6,14,.72);outline:2px solid var(--cyan);outline-offset:3px;transition:all .35s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+[data-theme="light"] .wi-hole{box-shadow:0 0 0 9999px rgba(19,34,59,.55)}
+[data-theme="pixel"] .wi-hole{border-radius:0;outline:3px solid var(--amber)}
+.wi-bub{position:fixed;width:min(360px,calc(100vw - 24px));background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:16px 18px 14px;box-shadow:0 30px 80px rgba(0,0,0,.55);transition:left .35s cubic-bezier(.2,.8,.2,1),top .35s cubic-bezier(.2,.8,.2,1);color:var(--text)}
+.wi-bub .k{font:600 10.5px var(--mono);letter-spacing:1.2px;text-transform:uppercase;color:var(--cyan)}
+.wi-bub h3{margin:4px 0 6px;font:700 17px var(--head);letter-spacing:.4px;text-transform:uppercase}
+.wi-bub p{margin:0;font-size:14.5px;line-height:1.55}
+.wi-bub .row{display:flex;align-items:center;gap:8px;margin-top:14px}
+.wi-bub .row .sp{flex:1}
+.wi-bub .dots{display:flex;gap:4px}
+.wi-bub .dots i{width:6px;height:6px;border-radius:50%;background:var(--line2)}
+.wi-bub .dots i.on{background:var(--accent)}
+.wi-bub button{font:600 11.5px var(--mono);letter-spacing:1px;text-transform:uppercase;padding:7px 12px;border-radius:8px;border:1px solid var(--line2);color:var(--text)}
+.wi-bub button.pri{background:var(--accent);border-color:var(--accent);color:var(--accentText)}
+.wi-bub button.skip{border-color:transparent;color:var(--muted);padding-left:0}
+[data-theme="pixel"] .wi-bub{border-radius:0;border:3px solid var(--violet);box-shadow:8px 8px 0 #000}
+[data-theme="pixel"] .wi-bub .k{font:7px var(--head);color:var(--amber)}
+[data-theme="pixel"] .wi-bub h3{font-size:12px;line-height:1.6;color:var(--cyan)}
+[data-theme="pixel"] .wi-bub p{font-size:19px;line-height:1.25}
+[data-theme="pixel"] .wi-bub button{font:7px var(--head);border-radius:0;padding:9px 10px}
+[data-theme="pixel"] .wi-bub .dots i{border-radius:0}
+
+/* ---------- Home button ---------- */
+#wiHome{text-decoration:none}
+@media (max-width:480px){#wiBtn{display:none}}
+@media (prefers-reduced-motion:reduce){.wi-hole,.wi-bub{transition:none}.n-cont.ready{animation:none}}
+
+/* ---------- fixes after first test ---------- */
+.narr .n-go{position:sticky;bottom:-12px;margin:12px -14px -12px;padding:10px 14px 12px;background:var(--panel);border-top:1px solid var(--line);z-index:2}
+[data-theme="dark"] .narr .n-go{background:#0f172b}
+.side .hd{position:relative}
+.side .hd>.wi-q{position:absolute;top:11px;right:12px;margin:0}
+.info .ph>.h{white-space:nowrap}
+/* phones: What's happening sits right under the map; make room for Home in the header */
+@media (max-width:1050px){
+  #app,#app.nolist,#app.dia{grid-template-areas:"top" "stage" "ev" "info"}
+}
+@media (max-width:480px){
+  .top #searchBtn{display:none!important}
+}
+
+/* ---------- smoother animation (measured: about two-thirds fewer dropped frames) ----------
+   1. the map and its lighting overlays get their own layers, so lighting isn't repainted every frame
+   2. looping decorations pause only while a message is moving, then carry on
+   3. the wide, faint glow under each trail is dropped: it cost more than it showed */
+.canvas::before,.canvas::after,#net{will-change:transform}
+.trail.glow{display:none}
+.bot>*{contain:layout}
+
+/* ---------- taller What's happening box + Why it matters ---------- */
+@media (min-width:1051px){
+  #app,#app.nolist{grid-template-rows:auto minmax(0,1fr) clamp(360px,44vh,560px)}
+}
+.n-why{margin:12px 0 0;padding:10px 12px;border-radius:8px;background:color-mix(in srgb,var(--violet) 9%,transparent);border:1px solid color-mix(in srgb,var(--violet) 35%,transparent)}
+.n-why b{display:block;font:600 10.5px var(--mono);letter-spacing:1.2px;text-transform:uppercase;color:var(--violet);margin-bottom:3px}
+.n-why p{margin:0;font-size:14px;line-height:1.6}
+[data-theme="light"] .n-why b{color:#5b3fc4}
+[data-theme="pixel"] .n-why{border-radius:0;border-width:2px}
+[data-theme="pixel"] .n-why b{font:7px var(--head);line-height:1.8;color:var(--violet)}
+[data-theme="pixel"] .n-why p{font-size:18px;line-height:1.25}
+
+
+/* ---------- everything that moves, made smooth ----------
+   Messages and camera pans run on the GPU (see wiFly and camera in each walk's app.js).
+   Ambient motion no longer slides fine dashes (that shimmers); it breathes instead. */
+#net{transform-origin:0 0}
+.wi-pk-layer{position:absolute;inset:0;pointer-events:none;z-index:2;overflow:hidden}
+.stage.seqv .wi-pk-layer{display:none}
+.wi-pk{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform;--kc:var(--node)}
+.wi-pk.k-attack,.wi-pk.k-bad{--kc:var(--red)}.wi-pk.k-data{--kc:var(--amber)}.wi-pk.k-defence,.wi-pk.k-fix{--kc:var(--green)}
+.wi-pk i{position:absolute;border-radius:50%;display:block}
+.wi-pk .gl{width:32px;height:32px;left:-16px;top:-16px;background:radial-gradient(circle,rgba(255,255,255,.95) 0,color-mix(in srgb,var(--kc) 85%,transparent) 22%,color-mix(in srgb,var(--kc) 28%,transparent) 50%,transparent 100%)}
+.wi-pk .dt{width:8px;height:8px;left:-4px;top:-4px;background:var(--kc)}
+.wi-pk .co{width:3.6px;height:3.6px;left:-1.8px;top:-1.8px;background:#fff}
+.wi-pk .lb{position:absolute;left:0;top:-34px;transform:translateX(-50%);height:22px;line-height:20px;padding:0 9px;border-radius:6px;border:1.4px solid var(--kc);background:color-mix(in srgb,var(--kc) 22%,#0a1020);color:#fff;font:600 11px var(--mono);letter-spacing:.3px;white-space:nowrap;box-shadow:0 4px 10px rgba(0,0,0,.35);opacity:0}
+[data-theme="light"] .wi-pk .lb{background:color-mix(in srgb,var(--kc) 13%,#fff);color:#13223b;box-shadow:0 3px 8px rgba(19,34,59,.18)}
+/* rings around the icons in play: they breathe instead of spinning */
+.node.focus .halo .ring,.node.comp.focus .halo .ring{animation:wiRing 3.2s ease-in-out infinite!important;stroke-dashoffset:0}
+.node.focus .halo .ring.r2{animation-delay:-1.6s!important}
+.node.comp .halo .ring{animation:wiRing 2.2s ease-in-out infinite!important}
+@keyframes wiRing{0%,100%{opacity:.3}50%{opacity:.85}}
+/* live links: still dotted, brighter, with a soft breathing glow instead of crawling dots */
+.link.live{animation:none!important;stroke-opacity:1}
+.linkglow.live{animation:wiLink 2.4s ease-in-out infinite}
+@keyframes wiLink{0%,100%{opacity:.06}50%{opacity:.2}}
+.linkglow.live.hot{animation-name:wiLinkHot}
+@keyframes wiLinkHot{0%,100%{opacity:.08}50%{opacity:.24}}
+/* LEDs blink like real LEDs (a crisp on/off), so they don't repaint between blinks */
+.node.focus .ico .led,.node.comp .ico .led{animation-timing-function:steps(1,end)!important}
+/* the glowing kill-chain tile and the Continue button pulse with opacity, not a repainted shadow */
+.tile.on{animation:none!important;position:relative}
+.tile.on::after{content:"";position:absolute;inset:-1px;border-radius:inherit;box-shadow:0 0 22px var(--red),0 0 4px var(--red);opacity:.35;animation:wiGlow 1.8s ease-in-out infinite;will-change:opacity;pointer-events:none}
+[data-theme="pixel"] .tile.on::after{display:none}
+.n-cont{position:relative}
+.n-cont.ready{animation:none!important}
+.n-cont.ready::after{content:"";position:absolute;inset:-4px;border-radius:12px;box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 35%,transparent),0 6px 18px -6px var(--accent);opacity:0;animation:wiGlow 1.8s ease-in-out infinite;will-change:opacity;pointer-events:none}
+[data-theme="pixel"] .n-cont.ready::after{border-radius:0}
+@keyframes wiGlow{0%,100%{opacity:.25}50%{opacity:1}}
+@media (prefers-reduced-motion:reduce){.wi-pk{display:none}}
+
+/* reduced motion: switch off every endless pulse and glow in this file. The ring rules above use !important,
+   which would otherwise beat each page's general reduced-motion rule, so these need it too. */
+@media (prefers-reduced-motion:reduce){
+  .node.focus .halo .ring,.node.comp.focus .halo .ring,.node.comp .halo .ring{animation:none!important;opacity:.6}
+  .n-msgs li.now i,.n-cont.ready,.n-cont.ready::after,.n-wait::after,.linkglow.live,.tile.on::after{animation:none!important}
+}

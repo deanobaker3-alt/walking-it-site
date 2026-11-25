@@ -1,0 +1,58 @@
+/* Ticketwalk by Dean Baker (© 2026 Dean Baker. All rights reserved.) — the ticket lifecycle and "Words to know".
+   JOURNEY: the seven stages every ticket goes through (the tiles along the top).
+   GLOSSARY: shown under a step when the term appears in it. [label, pattern (case-insensitive), plain meaning] */
+window.JOURNEY = [
+  {name: "Logged", tech: "Call, email, chat or portal → a ticket", desc: "The problem reaches the service desk and becomes a ticket with a reference number, so nothing gets lost."},
+  {name: "Verify", tech: "Identity checks before any change", desc: "Making sure the person really is who they say they are before you reset, unlock or grant anything."},
+  {name: "Triage", tech: "Category, priority (impact × urgency), owner", desc: "Deciding how urgent it is, what kind of problem it is and who should own it."},
+  {name: "Investigate", tech: "Logs, admin centres, the user's screen", desc: "Gathering evidence: what the logs, admin centres and the user's own screen actually say."},
+  {name: "Find the cause", tech: "Root cause, not just the symptom", desc: "Working out why it's happening, not just what the user sees. Fix the symptom and it comes back."},
+  {name: "Fix", tech: "Change one thing, the right thing", desc: "Changing the thing that's actually wrong, and nothing else."},
+  {name: "Confirm & close", tech: "User confirms, clear closing note", desc: "Checking with the user that it really works, then writing a note the next person can learn from."}
+];
+
+window.GLOSSARY = [
+  ["Ticket", "\\bticket\\b|\\bINC-", "The record of a problem or request at the service desk: who, what, when, and everything done about it."],
+  ["Priority (P1–P4)", "\\bP[1-4]\\b|priority", "How urgently a ticket gets worked on. Usually worked out from impact (how many people) and urgency (how badly it stops them)."],
+  ["Impact and urgency", "\\bimpact\\b|\\burgency\\b|\\burgent\\b", "Impact is how many people or how much of the business is affected. Urgency is how fast it hurts. Together they set the priority."],
+  ["SLA", "\\bSLA\\b|service level", "Service level agreement: the promise of how fast tickets get a response and a fix, usually by priority."],
+  ["Escalate", "escalat", "Hand the ticket to a team with more access or expertise (2nd line, security, a supplier), with your notes, so they don't start from scratch."],
+  ["Workaround", "workaround", "A way for the user to carry on working while the real fix is found. It doesn't close the ticket."],
+  ["Root cause", "root cause|real cause", "The underlying reason something broke. Fixing only the symptom means the ticket comes back."],
+  ["Active Directory (AD)", "\\bActive Directory\\b|\\bAD\\b|domain controller|\\bDC01\\b", "The on-premises directory of users, computers and groups. It checks passwords when people sign in to the network."],
+  ["Account lockout", "lock(ed|s)? out|lockout", "After too many wrong passwords in a short time, the account is blocked for a while. It stops attackers guessing, but anything using an old password can trigger it too."],
+  ["Entra ID", "\\bEntra\\b", "Microsoft's cloud directory (formerly Azure AD). It handles sign-in to Microsoft 365, MFA and Conditional Access."],
+  ["Entra Connect (sync)", "Entra Connect|\\bsync(ed|s)?\\b", "The tool that copies users and groups from on-premises Active Directory up to Entra ID, usually every 30 minutes."],
+  ["MFA", "\\bMFA\\b|multi-factor|second factor", "Multi-factor authentication: proving it's you with something extra on top of your password, like an app approval on your phone."],
+  ["Authenticator app", "Authenticator", "The phone app that shows MFA approvals and codes. It's tied to the phone it was set up on."],
+  ["Temporary Access Pass (TAP)", "Temporary Access Pass|\\bTAP\\b", "A time-limited passcode an admin issues so a user can sign in once and register a new MFA method, like on a new phone."],
+  ["Conditional Access", "Conditional Access", "Entra ID rules that decide when sign-in needs MFA, a trusted device or is blocked, based on who, where and what."],
+  ["Sign-in logs", "sign-in log", "Entra ID's record of every sign-in: who, when, from where, which app, and whether it worked and why not."],
+  ["Audit log", "audit log|unified audit", "A record of changes made: passwords reset, permissions granted, rules created, and who did them."],
+  ["NPS / RADIUS", "\\bNPS\\b|RADIUS", "The server that checks usernames and passwords for Wi-Fi and VPN (Network Policy Server, speaking the RADIUS protocol). It asks Active Directory."],
+  ["802.1X (PEAP)", "802\\.1X|PEAP|enterprise Wi-Fi", "Enterprise Wi-Fi where each person signs in with their own username and password, rather than one shared key."],
+  ["Social engineering", "social engineer|pretext|manipulat", "Tricking people rather than computers: pretending to be someone trusted to get access, a reset or information."],
+  ["Vishing", "vishing|voice phishing", "Phishing by phone call. Attackers ring the service desk pretending to be staff to get a password or MFA reset."],
+  ["Callback", "call(ed)? (them )?back|callback", "Hanging up and ringing the person on a number you already hold, not the one they gave you. It defeats most impersonation."],
+  ["Inbox rule", "inbox rule", "A rule that moves, forwards or deletes mail automatically. Attackers create them to hide replies and forward mail out."],
+  ["Shared mailbox", "shared mailbox", "A mailbox a team uses together, like sales@. Nobody signs in to it; people are given permission to open it."],
+  ["Full Access", "Full Access|FullAccess", "Permission to open a mailbox and read and manage everything in it. It does not let you send as it."],
+  ["Send As", "Send As|SendAs", "Permission to send mail that appears to come from the mailbox itself, with no mention of who actually sent it."],
+  ["Send on Behalf", "on Behalf|on-behalf|SendOnBehalf", "Permission to send from a mailbox, but recipients see 'Jo on behalf of Sales'."],
+  ["Automapping", "automap|auto-map", "Outlook adding a mailbox you have Full Access to into your folder list by itself. It only happens when access is granted to you directly, not through a group."],
+  ["Autodiscover", "Autodiscover", "How Outlook finds its settings, including which extra mailboxes to show. It's where automapping comes from."],
+  ["Mailbox quota", "quota|mailbox (is )?full|49\\.5 GB|50 GB", "The size limit on a mailbox. Near it you get warnings; at 49.5 GB you can't send; at 50 GB you can't receive either."],
+  ["Online archive", "archive", "A second, separate mailbox for older mail. It doesn't count towards the main mailbox's quota and stays searchable."],
+  ["Retention policy", "retention|MRM", "Rules that move old mail to the archive or delete it after a set time, automatically."],
+  ["PST file", "\\bPST\\b", "A file on someone's computer holding exported mail. Easy to lose, not backed up centrally and outside the company's retention rules."],
+  ["Recoverable Items", "Recoverable Items", "A hidden folder that keeps deleted mail for a while so it can be restored. It has its own quota."],
+  ["Print queue / spooler", "spooler|print queue|queue", "The Windows service that holds print jobs and sends them to the printer one at a time."],
+  ["Printer port", "printer port|TCP/IP port|\\bport\\b", "The setting on the print server that says which IP address the printer lives at."],
+  ["DHCP reservation", "reservation", "A rule on the DHCP server that always gives one device (by MAC address) the same IP address."],
+  ["DHCP", "\\bDHCP\\b", "The service that hands out IP addresses automatically, on loan for a set time."],
+  ["MAC address", "\\bMAC\\b", "A device's built-in hardware address. It doesn't change, which makes it good for reservations."],
+  ["Licence", "licen[cs]e|\\bE3\\b|Business Standard", "What switches on a user's Microsoft 365 services. No licence with Exchange in it, no mailbox."],
+  ["Group-based licensing", "group-based|licensing group|LIC-", "Licences assigned by putting users in a group. Join the group, get the licence; leave it, lose it."],
+  ["Joiners, movers, leavers", "joiner|leaver|new starter|starter form", "The HR-driven process for creating, changing and removing accounts. Most new-starter tickets start with a gap in it."],
+  ["Knowledge base (KB)", "\\bKB\\b|knowledge base|knowledge article", "The service desk's library of how-to and known-fix articles. A good closing note is the seed of one."]
+];
