@@ -1290,7 +1290,7 @@ function printCard() {
 function openAbout() {
   const nF = ATT.reduce((s, a) => s + a.fixes.length, 0), nP = Object.keys(PKT).length;
   $("#modal").innerHTML = `<div class="scrim" data-act="closeModal"><div class="modal"><div class="mh"><span class="h">${T("About", "ABOUT")}</span><button class="iconbtn" data-act="closeModal">✕</button></div>
-    <div class="about"><div class="ab-brand">PACKET<i>WALK</i></div><div class="ab-by">Made by Dean Baker</div>
+    <div class="about"><img class="ab-logo" src="../shared/brand/packetwalk-logo-640.webp" alt="Packetwalk logo: a magnifying glass looking down a server aisle" width="240" height="240"><div class="ab-by">Made by Dean Baker</div>
       <p>Follow real network problems step by step, the way a helpdesk engineer would. See the commands, logs and packets, try the fixes (including the ones people wrongly try first), and learn which one actually works.</p>
       <ul><li><b>${ATT.length}</b> tickets with <b>${nF}</b> fixes to try, and only one right answer each</li>
         <li><b>${nP}</b> real packet captures, byte for byte, plus command output for Windows, macOS and Linux</li>

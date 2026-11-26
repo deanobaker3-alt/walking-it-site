@@ -22,7 +22,8 @@
 <meta property="og:image" content="https://deanobaker3-alt.github.io/walking-it-site/preview.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0a1020">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2 29 8v8c0 7-5 12-13 14C8 28 3 23 3 16V8z' fill='%230a1020' stroke='%236ea8ff' stroke-width='2'/%3E%3Cpath d='M13 10.5v11l9-5.5z' fill='%23ff5a6e'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="../shared/brand/cloudwalk-fav.png">
+<link rel="apple-touch-icon" href="../shared/brand/cloudwalk-touch.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
@@ -960,6 +961,12 @@ body[data-theme="light"]{background:radial-gradient(1100px 700px at 8% -12%,rgba
 [data-theme="pixel"] .anabtn.on{color:#1a0620}
 .locked,.qsec.locked{opacity:1}
 .locked .qopt{opacity:.4}
+
+/* lens logos (Canva artwork, © 2026 Dean Baker): smooth in dark/light, pixelated in pixel arcade */
+.lens{display:block;border-radius:50%}.lens img{display:block;width:100%;height:100%;border-radius:50%}
+.lens .px{display:none;image-rendering:pixelated;border-radius:0}
+[data-theme="pixel"] .lens img{display:none}[data-theme="pixel"] .lens .px{display:block}
+.ab-logo{display:block;width:min(180px,60%);height:auto;aspect-ratio:1;margin:0 auto 12px;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,.35)}
 </style>
 <link rel="stylesheet" href="../shared/guide.css">
 </head>
@@ -969,7 +976,7 @@ body[data-theme="light"]{background:radial-gradient(1100px 700px at 8% -12%,rgba
   <header class="top card">
     <button class="iconbtn" id="menuBtn" title="Ticket list (L)" aria-label="Ticket list"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4h11M2.5 8h11M2.5 12h11"/></svg></button>
     <div class="brand">
-      <svg class="logo" viewBox="0 0 34 34" aria-hidden="true"><path d="M17 2 31 9v8c0 8-6 13-14 15C9 30 3 25 3 17V9z" fill="none" stroke="var(--node)" stroke-width="1.8"/><path d="M14 11.5v11l9-5.5z" fill="var(--red)"/></svg>
+      <span class="logo lens" aria-hidden="true"><img src="../shared/brand/cloudwalk-lens-128.webp" alt="" width="34" height="34"><img class="px" src="../shared/brand/cloudwalk-lens-px19.png" alt="" width="34" height="34"></span>
       <div><b>CLOUD<i>WALK</i></b><small class="by">part of Walking <i class="itr">IT</i></small></div>
     </div>
     <div class="kc"><div class="lab"><span>Journey</span><b id="kcName">—</b></div><div class="tiles" id="tiles"></div></div>

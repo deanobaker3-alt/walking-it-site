@@ -25,7 +25,8 @@ css.textContent = `
 .wi-menu small{display:block;font:11px var(--mono);color:var(--muted);letter-spacing:.3px}
 .wi-menu .here{margin-left:auto;font:600 9.5px var(--mono);letter-spacing:1px;text-transform:uppercase;color:var(--accent);white-space:nowrap}
 .wi-menu .sep{height:1px;background:var(--line);margin:5px 4px}
-.wi-menu .lg{width:22px;height:22px;flex:none}
+.wi-menu .lg{width:22px;height:22px;flex:none;border-radius:50%}
+[data-theme="pixel"] .wi-menu .lg{image-rendering:pixelated;border-radius:0}
 [data-theme="pixel"] .wi-menu a{border-radius:0}
 [data-theme="pixel"] .wi-menu .wm{font-size:8px;letter-spacing:.5px;line-height:1.7;color:var(--cyan)}
 [data-theme="pixel"] .wi-menu .wm i{color:var(--amber);font-style:normal}
@@ -53,7 +54,7 @@ function close(focus) {
 }
 function open() {
   const P = pixel();
-  const logo = `<svg class="lg" viewBox="0 0 34 34" aria-hidden="true"><path d="M17 2 31 9v8c0 8-6 13-14 15C9 30 3 25 3 17V9z" fill="none" stroke="var(--node)" stroke-width="2"/><path d="M14 11.5v11l9-5.5z" fill="var(--red)"/></svg>`;
+  const logo = `<img class="lg" src="../shared/brand/walkingit-${P ? "lens-px19.png" : "lens-128.webp"}" alt="" width="22" height="22">`;
   const item = (href, wm, sub, cur) => `<a role="menuitem" href="${href}"${cur ? ' aria-current="page"' : ""}><span><span class="wm">${wm}</span><small>${sub}</small></span>${cur ? `<span class="here">${P ? "YOU ARE HERE" : "You're here"}</span>` : ""}</a>`;
   box.innerHTML = `<div class="menu wi-menu" role="menu" aria-label="Walking IT">
     <a role="menuitem" href="../index.html">${logo}<span><span class="wm">WALKING <i>IT</i></span><small>${P ? "HOME · ALL WALKS" : "Home: all the walks"}</small></span></a>

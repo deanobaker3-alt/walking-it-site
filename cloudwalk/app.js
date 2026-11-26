@@ -1306,7 +1306,7 @@ function openAbout() {
   const nF = ATT.reduce((s, a) => s + a.fixes.length, 0);
   const nE = ATT.reduce((s, a) => s + a.broken.concat(a.fixedSteps).reduce((t, st) => t + (st.evidence || []).length, 0) + a.fixes.length, 0);
   $("#modal").innerHTML = `<div class="scrim" data-act="closeModal"><div class="modal"><div class="mh"><span class="h">${T("About", "ABOUT")}</span><button class="iconbtn" data-act="closeModal">✕</button></div>
-    <div class="about"><div class="ab-brand">CLOUD<i>WALK</i></div><div class="ab-by">Made by Dean Baker</div>
+    <div class="about"><img class="ab-logo" src="../shared/brand/cloudwalk-logo-640.webp" alt="Cloudwalk logo: a magnifying glass showing someone walking a path through the cloud past email, calendar, chat and file icons" width="240" height="240"><div class="ab-by">Made by Dean Baker</div>
       <p>Follow real Microsoft 365 and Entra ID problems step by step, the way an M365 admin would. See the sign-in logs, audit logs and PowerShell output, try the fixes (including the ones people wrongly try first), and learn which one actually works.</p>
       <ul><li><b>${ATT.length}</b> tickets with <b>${nF}</b> fixes to try, and only one right answer each</li>
         <li><b>${nE}</b> pieces of evidence: sign-in log entries with the real error codes, audit logs and PowerShell output</li>

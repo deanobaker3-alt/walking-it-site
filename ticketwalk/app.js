@@ -1351,7 +1351,7 @@ function printCard() {
 function openAbout() {
   const nF = ATT.reduce((s, a) => s + a.fixes.length, 0), nE = ATT.reduce((s, a) => s + a.broken.reduce((t, x) => t + (x.evidence || []).length, 0), 0);
   $("#modal").innerHTML = `<div class="scrim" data-act="closeModal"><div class="modal"><div class="mh"><span class="h">${T("About", "ABOUT")}</span><button class="iconbtn" data-act="closeModal">✕</button></div>
-    <div class="about"><div class="ab-brand">TICKET<i>WALK</i></div><div class="ab-by">Made by Dean Baker</div>
+    <div class="about"><img class="ab-logo" src="../shared/brand/ticketwalk-logo-640.webp" alt="Ticketwalk logo: a magnifying glass looking over a busy service desk" width="240" height="240"><div class="ab-by">Made by Dean Baker</div>
       <p>Work real service desk tickets step by step. See what's actually going on behind the "it's not working", read the evidence the desk would see, try the fixes (including the ones people wrongly try first) and learn which one actually works.</p>
       <ul><li><b>${ATT.length}</b> tickets with <b>${nF}</b> fixes to try, and only one right answer each</li>
         <li><b>${nE}</b> pieces of evidence: ticket notes, sign-in and audit logs, admin centre screens and PowerShell output</li>

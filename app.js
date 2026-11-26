@@ -287,9 +287,9 @@ function icon(n) {
    RENDER
    ============================================================ */
 function walkIcon(w) {
-  const hostile = w.icon === "attacker" || w.icon === "caller";
-  const cls = "node" + (hostile ? " hostile" : "") + (w.icon === "attacker" ? " atk" : "");
-  return `<svg class="w-ico" viewBox="-58 -98 116 108" aria-hidden="true" focusable="false"><g class="${cls}"><g class="ico">${icon({kind: w.icon})}</g></g></svg>`;
+  // the walk's lens logo; pixel arcade gets a chunky low-res version
+  const n = w.id + "walk";
+  return `<span class="w-ico w-lens" aria-hidden="true"><img src="shared/brand/${n}-${T("lens-256.webp", "lens-px26.png")}" alt="" width="104" height="104"></span>`;
 }
 function renderHero() {
   $("#kick").textContent = T("Real IT problems, one step at a time", "SELECT YOUR GAME");
@@ -407,13 +407,13 @@ function setTheme(k) {
 function openAbout() {
   const list = WALKS.map(w => `<li><b>${esc(w.name.charAt(0) + w.name.slice(1).toLowerCase())}walk</b>: ${esc(w.tagline)} <span class="small">(${esc(w.count)})</span></li>`).join("");
   $("#modal").innerHTML = `<div class="scrim" data-act="close"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="abT"><div class="mh"><span id="abT">${T("About", "INFO")}</span><button class="iconbtn" data-act="close" aria-label="Close">✕</button></div>
-    <div class="about"><div class="ab-brand">WALKING <i>IT</i></div><div class="ab-by">Made by Dean Baker</div>
+    <div class="about"><img class="ab-logo" src="shared/brand/walkingit-logo-640.webp" alt="Walking IT logo: a magnifying glass looking down a corridor of helpdesk, network, cloud and security kit" width="240" height="240"><div class="ab-by">Made by Dean Baker</div>
       <p>Walking <i class="itr">IT</i> is a family of free, interactive training sites for people starting out in IT. Each one walks you through real-world problems step by step, in plain English, and shows you what a real engineer or analyst would see along the way.</p>
       <ul>${list}</ul>
       <p>Every walk follows the same pattern: plain English first, the technical detail one click away, the real evidence (logs, tickets, command output, admin screens), and a fix or defence you can switch on to see how the story changes. Each walk has three looks: simple dark, simple light and pixel arcade.</p>
       <p class="small">Every company, person, IP address and domain in the scenarios is made up, using documentation IP ranges and example domains. Commands and queries are examples to learn from, not production scripts. Not affiliated with Microsoft, CrowdStrike, MITRE or any other vendor mentioned. © 2026 Dean Baker. All rights reserved.</p>
       <div class="row"><button class="btn pri" data-act="close">${T("Got it", "OK!")}</button></div></div></div></div>`;
-  const b = $("#modal .modal .btn.pri"); if (b) b.focus();
+  const b = $("#modal .modal .btn.pri"); if (b) b.focus({preventScroll: true}); // keep the logo at the top in view
 }
 function closeModal() { if (!$("#modal").innerHTML) return; $("#modal").innerHTML = ""; $("#aboutBtn").focus(); }
 

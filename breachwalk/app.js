@@ -1275,7 +1275,7 @@ function printCard() {
 function openAbout() {
   const nD = ATT.reduce((s, a) => s + a.defences.length, 0), nQ = Object.values(QUERIES).reduce((s, o) => s + Object.keys(o).length, 0);
   $("#modal").innerHTML = `<div class="scrim" data-act="closeModal"><div class="modal"><div class="mh"><span class="h">${T("About", "ABOUT")}</span><button class="iconbtn" data-act="closeModal">✕</button></div>
-    <div class="about"><div class="ab-brand">BREACH<i>WALK</i></div><div class="ab-by">Made by Dean Baker</div>
+    <div class="about"><img class="ab-logo" src="../shared/brand/breachwalk-logo-640.webp" alt="Breachwalk logo: a magnifying glass looking into a security operations centre during an attack" width="240" height="240"><div class="ab-by">Made by Dean Baker</div>
       <p>Watch real-world attacks play out step by step, see the evidence a SOC analyst would see, and switch on defences to find exactly where each one breaks the chain.</p>
       <ul><li><b>${ATT.length}</b> attacks, <b>${nD}</b> defences and <b>${nQ}</b> example detection queries (Microsoft KQL and CrowdStrike CQL)</li>
         <li><b>Analyst mode:</b> solve mystery cases from the evidence alone</li>

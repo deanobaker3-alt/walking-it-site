@@ -21,7 +21,8 @@
 <meta property="og:image" content="https://deanobaker3-alt.github.io/walking-it-site/preview.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0a1020">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2 29 8v8c0 7-5 12-13 14C8 28 3 23 3 16V8z' fill='%230a1020' stroke='%236ea8ff' stroke-width='2'/%3E%3Cpath d='M13 10.5v11l9-5.5z' fill='%23ff5a6e'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="shared/brand/walkingit-fav.png">
+<link rel="apple-touch-icon" href="shared/brand/walkingit-touch.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
@@ -373,6 +374,22 @@ footer .soc a:hover{color:var(--text);border-color:var(--accent);text-decoration
 .itr{color:var(--red);font-style:italic;font-weight:600;padding-right:1px}
 [data-theme="dark"] .itr{text-shadow:0 0 10px rgba(255,90,110,.45)}
 [data-theme="pixel"] .itr{color:var(--amber);font-style:normal;text-shadow:none}
+
+/* lens logos (Canva artwork, © 2026 Dean Baker): smooth in dark/light, pixelated in pixel arcade */
+.lens{display:block;border-radius:50%}.lens img{display:block;width:100%;height:100%;border-radius:50%}
+.lens .px{display:none;image-rendering:pixelated;border-radius:0}
+[data-theme="pixel"] .lens img{display:none}[data-theme="pixel"] .lens .px{display:block}
+.ab-logo{display:block;width:min(180px,60%);height:auto;aspect-ratio:1;margin:0 auto 12px;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,.35)}
+
+.w-lens{display:block;width:104px;height:104px}
+.w-lens img{display:block;width:100%;height:100%;border-radius:50%;transition:transform .4s cubic-bezier(.2,.9,.25,1.3)}
+.walk:hover .w-lens img,.walk:focus-within .w-lens img{transform:translateY(-5px)}
+[data-theme="dark"] .w-lens img{box-shadow:0 0 0 1px rgba(110,168,255,.18),0 10px 26px rgba(0,0,0,.45)}
+[data-theme="light"] .w-lens img{box-shadow:0 0 0 1px rgba(19,34,59,.1),0 8px 18px rgba(19,34,59,.18)}
+[data-theme="pixel"] .w-lens img{image-rendering:pixelated;border-radius:0}
+[data-theme="pixel"] .walk:hover .w-lens img{transform:none}
+@media (max-width:640px){.w-lens{width:80px;height:80px}}
+@media (prefers-reduced-motion:reduce){.w-lens img{transition:none}.walk:hover .w-lens img,.walk:focus-within .w-lens img{transform:none}}
 </style>
 </head>
 <body data-theme="dark">
@@ -380,7 +397,7 @@ footer .soc a:hover{color:var(--text);border-color:var(--accent);text-decoration
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false" id="defs"></svg>
 <header class="top wrap">
   <a class="brand" href="#top">
-    <svg class="logo" viewBox="0 0 34 34" aria-hidden="true"><path d="M17 2 31 9v8c0 8-6 13-14 15C9 30 3 25 3 17V9z" fill="none" stroke="var(--node)" stroke-width="1.8"/><path d="M14 11.5v11l9-5.5z" fill="var(--red)"/></svg>
+    <span class="logo lens" aria-hidden="true"><img src="shared/brand/walkingit-lens-128.webp" alt="" width="38" height="38"><img class="px" src="shared/brand/walkingit-lens-px19.png" alt="" width="38" height="38"></span>
     <div><b>WALKING <i>IT</i></b><small>Real IT, step by step</small></div>
   </a>
   <span class="sp"></span>
